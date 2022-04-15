@@ -23,4 +23,11 @@ stages:
     - bash: mvn -version
     - bash: java -version
     - bash:  echo $(ENV)
-    
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: |
+          **/*.yaml
+             **/*.tf
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+     - bash: ls -R $(Build.ArtifactStagingDirectory) 
