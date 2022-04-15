@@ -14,7 +14,7 @@ jobs:
 - job: build
   steps:
   - script: echo Job1 - Hello, world, changed!
-   displayName: 'Run a one-line script'
+    displayName: 'Run a one-line script'
 
   - script: echo "This is a secind trask"
-   displayName: "Welcome to Azure Pipeline"
+    displayName: "Welcome to Azure Pipeline"
