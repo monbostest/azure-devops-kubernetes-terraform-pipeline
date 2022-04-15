@@ -22,4 +22,5 @@ stages:
       displayName: "Welcome to Azure Pipeline"
     - bash: mvn -version
     - bash: java -version
+    - bash: $(ENV)
     
