@@ -15,7 +15,7 @@ steps:
 
 - task: TerraformCLI@0
   inputs:
-    command: 'init'
+    command: 'init' '-var client_id=$(client_id  -var client_secret=$(client_secret)'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     backendType: 'azurerm'
     backendServiceArm: 'terraform-cicd'
