@@ -17,7 +17,7 @@ steps:
   inputs:
     command: 'init' 
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=$(client_id  -var client_secret=$(client_secret)'
+    commandOptions: '-var client_id=$(client_id)  -var client_secret=$(client_secret)'
     backendType: 'azurerm'
     backendServiceArm: 'terraform-cicd'
     backendAzureRmSubscriptionId: '0c6b065f-5b32-47b7-b55f-6e6cbe2eb88c'
