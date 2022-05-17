@@ -18,8 +18,7 @@ stages:
 
     - script: echo "This is a secind trask"
       displayName: "Welcome to Azure Pipeline"
-    - bash: mvn -version
-    - bash: java -version
+   
     - bash:  echo $(ENV)
     - task: CopyFiles@2
       inputs:
