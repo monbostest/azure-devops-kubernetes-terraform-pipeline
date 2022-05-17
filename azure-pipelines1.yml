@@ -22,6 +22,8 @@ stages:
     - bash:  echo $(ENV)
     - bash: sudo apt-get update -y
     - bash: sudo apt-get install docker.io -y
+    - bash: sudo usermod -aG docker $USER
+    - bash: sudo systemctl restart docker 
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
