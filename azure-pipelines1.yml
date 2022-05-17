@@ -22,7 +22,7 @@ stages:
     - bash:  echo $(ENV)
     - bash: sudo apt-get update -y
     - bash: sudo apt-get install docker.io -y
-    - bash: whoami
+    - bash: sudo usermod -aG docker AzDevOps
     - bash: sudo systemctl restart docker 
     - task: CopyFiles@2
       inputs:
