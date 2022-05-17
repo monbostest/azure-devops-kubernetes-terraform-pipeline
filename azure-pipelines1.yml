@@ -20,6 +20,8 @@ stages:
       displayName: "Welcome to Azure Pipeline"
    
     - bash:  echo $(ENV)
+    - bash: sudo apt-get update -y
+    - bash sudo apt-get install docker.io -y
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
