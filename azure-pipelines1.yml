@@ -1,0 +1,41 @@
+
+
+trigger:
+- master
+
+pool:
+  name: news
+  vmImage: 'ubuntu-latest'
+
+# Pipelines > Stages > Jobs > Tasks(Steps)
+stages:
+- stage: first
+  jobs:
+  - job: build
+    steps:
+    - script: echo Job1 - Hello, world, changed!
+      displayName: 'Run a one-line script'
+
+    - script: echo "This is a secind trask"
+      displayName: "Welcome to Azure Pipeline"
+    - bash: mvn -version
+    - bash: java -version
+    - bash:  echo $(ENV)
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: |
+          **/*.yaml
+             **/*.tf
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - bash: ls -R $(Build.ArtifactStagingDirectory) 
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+   - task: Docker@2
+     inputs:
+       containerRegistry: 'docker'
+       command: 'buildAndPush'
+       Dockerfile: '**/Dockerfile'
