@@ -44,4 +44,8 @@ stages:
         repository: 'nippy'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
+        tags: 'nippy/app:$(Build.BuildId)'
+ 
+
+
  
