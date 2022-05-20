@@ -44,7 +44,7 @@ stages:
         repository: 'nippy/mycustom-image'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: ':$(Build.BuildId)'
+        tags: '$(Build.BuildId)'
  
 
 
